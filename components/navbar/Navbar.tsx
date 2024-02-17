@@ -1,6 +1,6 @@
 import React from "react";
 import Link from "next/link";
-
+import { ActiveLink } from "../active-link/ActiveLink";
 const navItems = [
   {
     path: "/about",
@@ -24,9 +24,7 @@ export const Navbar = () => {
       <div className="flex-1"></div>
 
       {navItems.map((item) => (
-        <Link key={item.path} href={item.path} className="mr-2">
-          {item.text}
-        </Link>
+        <ActiveLink key={item.path} path={item.path} text={item.text} />
       ))}
     </nav>
   );
