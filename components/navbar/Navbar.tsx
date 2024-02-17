@@ -1,20 +1,33 @@
 import React from "react";
 import Link from "next/link";
 
+const navItems = [
+  {
+    path: "/about",
+    text: "About",
+  },
+  {
+    path: "/pricing",
+    text: "Pricing",
+  },
+  {
+    path: "/contact",
+    text: "Contact",
+  },
+];
 export const Navbar = () => {
   return (
     <nav className="flex bg-white bg-opacity-30 p-2 m-2 rounded ">
-      <span className="m-2"> Home</span>
+      <Link href={"/"}>
+        <span className="m-2"> Home ✔</span>
+      </Link>
       <div className="flex-1"></div>
-      <Link className="m-2" href="/about">
-        Aboout
-      </Link>
-      <Link className="m-2" href="/pricing">
-        Pricing
-      </Link>
-      <Link className="m-2" href="/contact">
-        Contact
-      </Link>
+
+      {navItems.map((item) => (
+        <Link key={item.path} href={item.path} className="mr-2">
+          {item.text}
+        </Link>
+      ))}
     </nav>
   );
 };
